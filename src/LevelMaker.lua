@@ -147,7 +147,7 @@ function LevelMaker.generate(width, height)
                         solid = false,
 
                         onConsume = function(player, object)
-                            print('you got the key!')
+                            player.pickups['key'] = true
                         end
                     }
                 )
