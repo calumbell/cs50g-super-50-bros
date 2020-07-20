@@ -22,6 +22,8 @@ function LevelMaker.generate(width, height)
     local tileset = math.random(20)
     local topperset = math.random(20)
 
+    local lockSpawned = false
+
     -- insert blank tables into tiles for later access
     for x = 1, height do
         table.insert(tiles, {})
@@ -93,8 +95,34 @@ function LevelMaker.generate(width, height)
                 )
             end
 
+            -- chance to spawn a locked block, increasing as we progress through level gen
+            if math.random(math.max(width - x - 9, 1)) == 1 and lockSpawned == false then
+                -- set flag to true so that we only have one locked brick per level
+                lockSpawned = true
+
+                -- add lock block to objects
+                table.insert(objects,
+                    GameObject {
+                        texture = 'keys-locks',
+                        x = (x - 1) * TILE_SIZE,
+                        y = (blockHeight - 1) * TILE_SIZE,
+                        width = 16,
+                        height = 16,
+
+
+                        frame = 5,
+                        collidable = true,
+                        hit = false,
+                        solid = true,
+
+                        onCollide = function(obj)
+                            return
+                        end
+                    }
+                )
+
             -- chance to spawn a block
-            if math.random(10) == 1 then
+            elseif math.random(10) == 1 then
                 table.insert(objects,
 
                     -- jump block
