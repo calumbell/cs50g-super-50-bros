@@ -21,6 +21,7 @@ function LevelMaker.generate(width, height)
     local topper = true
     local tileset = math.random(20)
     local topperset = math.random(20)
+    local lockset = math.random(4)
 
     local lockSpawned = false
 
@@ -109,8 +110,7 @@ function LevelMaker.generate(width, height)
                         width = 16,
                         height = 16,
 
-
-                        frame = 5,
+                        frame = lockset + 4,
                         collidable = true,
                         hit = false,
                         solid = true,
