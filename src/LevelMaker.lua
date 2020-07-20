@@ -129,7 +129,6 @@ function LevelMaker.generate(width, height)
 
                     onConsume = function(player, object)
                         lockedBlock = nil
-                        print('consume')
                     end
                 }
                 
