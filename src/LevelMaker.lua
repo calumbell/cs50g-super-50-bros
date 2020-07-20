@@ -23,7 +23,11 @@ function LevelMaker.generate(width, height)
     local topperset = math.random(20)
     local lockset = math.random(4)
 
+    -- flag for ensuring that only one locked brick is spawned
     local lockSpawned = false
+
+    -- flag for ensuring that only one key is spawned
+    local keySpawned = false
 
     -- insert blank tables into tiles for later access
     for x = 1, height do
@@ -98,6 +102,7 @@ function LevelMaker.generate(width, height)
 
             -- chance to spawn a locked block, increasing as we progress through level gen
             if math.random(math.max(width - x - 9, 1)) == 1 and lockSpawned == false then
+
                 -- set flag to true so that we only have one locked brick per level
                 lockSpawned = true
 
@@ -117,6 +122,32 @@ function LevelMaker.generate(width, height)
 
                         onCollide = function(obj)
                             return
+                        end
+                    }
+                )
+
+            -- chance to spawn a key, increasing as we progress through level gen
+            elseif math.random(math.max(width - x - 9, 1)) == 1 and keySpawned == false then
+
+                -- set flag to true so that we only spawn one key per level
+                keySpawned = true
+
+                -- create the key object, insert it into the objects list
+                table.insert(objects,
+                    GameObject {
+                        texture = 'keys-locks',
+                        x = (x - 1) * TILE_SIZE,
+                        y = (blockHeight - 1) * TILE_SIZE,
+                        width = 16,
+                        height = 16,
+
+                        frame = lockset,
+                        collidable = true,
+                        consumable = true,
+                        solid = false,
+
+                        onConsume = function(player, object)
+                            print('you got the key!')
                         end
                     }
                 )
