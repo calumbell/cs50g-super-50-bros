@@ -131,6 +131,21 @@ function LevelMaker.generate(width, height)
                     -- the key makes the lock consumable, onConsume first remove it
                     onConsume = function(player, object)
                         lockedBlock = nil
+
+                        -- create a flagpole
+                        table.insert(objects,
+                            GameObject {
+                                texture = 'flags',
+                                frame = math.random(6),
+                                x = (width - 2) * TILE_SIZE,
+                                y = 4 * TILE_SIZE,
+                                width = 16,
+                                height = 48,
+                                collidable = false,
+                                consumable = false,
+                                solid = false
+                            }
+                        )
                     end
                 }
                 

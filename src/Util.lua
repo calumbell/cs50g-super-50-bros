@@ -62,23 +62,19 @@ function GenerateTileSets(quads, setsX, setsY, sizeX, sizeY)
     return tilesets
 end
 
-function GenerateFlagpoles(atlas)
-    local flagpoles = {}
-    for x = 1, 6 do
-        flagpoles[x] = love.graphics.newQuad((x-1) * 16, 0, 16, 48, atlas:getDimensions()) 
-    end
-    return flagpoles
 
-end
 
 function GenerateFlags(atlas)
     local flags = {}
 
+    for x = 1, 6 do
+        flags[x] = love.graphics.newQuad((x-1) * 16, 0, 16, 48, atlas:getDimensions()) 
+    end
+
     for y = 1, 4 do
 
-        table.insert(flags, {})
-        for x = 1, 3 do
-            flags[y][x] = love.graphics.newQuad((x+5)*TILE_SIZE, (y-1)*TILE_SIZE, 
+        for x = 7, 9 do
+            flags[x + 3 * (y-1)] = love.graphics.newQuad((x+5)*TILE_SIZE, (y-1)*TILE_SIZE, 
                 TILE_SIZE, TILE_SIZE, atlas:getDimensions())
         end
     end

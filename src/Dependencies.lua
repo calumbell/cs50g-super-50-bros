@@ -88,7 +88,6 @@ gFrames = {
     ['green-alien'] = GenerateQuads(gTextures['green-alien'], 16, 20),
     ['creatures'] = GenerateQuads(gTextures['creatures'], 16, 16),
     ['keys-locks'] = GenerateQuads(gTextures['keys-locks'], 16, 16),
-    ['flagpoles'] = GenerateFlagpoles(gTextures['flags']),
     ['flags'] = GenerateFlags(gTextures['flags'])
 }
 
