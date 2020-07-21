@@ -74,7 +74,7 @@ function GenerateFlags(atlas)
     for y = 1, 4 do
 
         for x = 7, 9 do
-            flags[x + 3 * (y-1)] = love.graphics.newQuad((x+5)*TILE_SIZE, (y-1)*TILE_SIZE, 
+            flags[x + (3 * (y-1))] = love.graphics.newQuad((x-1)*TILE_SIZE, (y-1)*TILE_SIZE, 
                 TILE_SIZE, TILE_SIZE, atlas:getDimensions())
         end
     end

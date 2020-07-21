@@ -147,6 +147,21 @@ function LevelMaker.generate(width, height)
                             GameObject {
                                 texture = 'flags',
                                 frame = math.random(6),
+                                x = ((flagX - 1) * TILE_SIZE),
+                                y = 3 * TILE_SIZE,
+                                width = 16,
+                                height = 48,
+                                collidable = false,
+                                consumable = false,
+                                solid = false
+                            }
+                        )
+
+                        -- create the flag
+                        table.insert(objects,
+                            GameObject {
+                                texture = 'flags',
+                                frame = 7 + (3 * math.random(0, 3)),
                                 x = (flagX - 1) * TILE_SIZE,
                                 y = 3 * TILE_SIZE,
                                 width = 16,
