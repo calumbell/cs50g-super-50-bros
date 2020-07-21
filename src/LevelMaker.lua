@@ -123,10 +123,12 @@ function LevelMaker.generate(width, height)
                     solid = true,
                     consumable = false,
 
+                    -- don't do anything special on a collision
                     onCollide = function(obj)
                         return
                     end,
 
+                    -- the key makes the lock consumable, onConsume first remove it
                     onConsume = function(player, object)
                         lockedBlock = nil
                     end

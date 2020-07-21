@@ -74,7 +74,8 @@ gTextures = {
     ['backgrounds'] = love.graphics.newImage('graphics/backgrounds.png'),
     ['green-alien'] = love.graphics.newImage('graphics/green_alien.png'),
     ['creatures'] = love.graphics.newImage('graphics/creatures.png'),
-    ['keys-locks'] = love.graphics.newImage('graphics/keys_and_locks.png')
+    ['keys-locks'] = love.graphics.newImage('graphics/keys_and_locks.png'),
+    ['flags'] = love.graphics.newImage('graphics/flags.png')
 }
 
 gFrames = {
