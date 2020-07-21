@@ -132,13 +132,23 @@ function LevelMaker.generate(width, height)
                     onConsume = function(player, object)
                         lockedBlock = nil
 
+                        -- calculate a suitable X coord for the flag
+                        local flagX = width
+                        local columnNotFree = true
+
+                        while columnNotFree do
+                            flagX = flagX - 1
+                            -- if tiles at y = 6 & 7 are the same, it is either a chasm or pillar and not free
+                            columnNotFree = tiles[7][flagX].id == tiles[6][flagX].id
+                        end
+
                         -- create a flagpole
                         table.insert(objects,
                             GameObject {
                                 texture = 'flags',
                                 frame = math.random(6),
-                                x = (width - 2) * TILE_SIZE,
-                                y = 4 * TILE_SIZE,
+                                x = (flagX - 1) * TILE_SIZE,
+                                y = 3 * TILE_SIZE,
                                 width = 16,
                                 height = 48,
                                 collidable = false,
