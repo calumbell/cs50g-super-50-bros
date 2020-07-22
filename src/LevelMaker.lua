@@ -165,10 +165,14 @@ function LevelMaker.generate(width, height)
                                 x = (flagX) * TILE_SIZE - 8,
                                 y = 3 * TILE_SIZE + 6,
                                 width = 16,
-                                height = 48,
+                                height = 16,
                                 collidable = false,
-                                consumable = false,
-                                solid = false
+                                consumable = true,
+                                solid = false,
+
+                                onConsume = function(obj)
+                                    gStateMachine:change('play')
+                                end
                             }
                         )
                     end
