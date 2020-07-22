@@ -10,13 +10,15 @@ PlayState = Class{__includes = BaseState}
 function PlayState:enter(params)
     self.camX = 0
     self.camY = 0
-    self.level = LevelMaker.generate(15, 10)
+    self.level = LevelMaker.generate(params.width, 10)
     self.tileMap = self.level.tileMap
     self.background = math.random(3)
     self.backgroundX = 0
 
     self.gravityOn = true
     self.gravityAmount = 6
+
+
 
     -- make sure the player always spawns above solid ground
     -- (ASSIGNMENT OBJECTIVE 1)
@@ -32,6 +34,7 @@ function PlayState:enter(params)
         x = TILE_SIZE * (x-1), y = 0,
         width = 16, height = 20,
         texture = 'green-alien',
+        score = params['score'],
         stateMachine = StateMachine {
             ['idle'] = function() return PlayerIdleState(self.player) end,
             ['walking'] = function() return PlayerWalkingState(self.player) end,

@@ -179,7 +179,10 @@ function LevelMaker.generate(width, height)
 
                                 -- regenerate level by resetting the play state
                                 onConsume = function(obj)
-                                    gStateMachine:change('play')
+                                    gStateMachine:change('play', {
+                                        ['score'] = player.score,
+                                        ['width'] = width + 10
+                                    })
                                 end
                             }
                         )
