@@ -12,7 +12,8 @@ function PlayerWalkingState:init(player)
     self.player = player
     self.animation = Animation {
         frames = {10, 11},
-        interval = 0.1
+        interval = 0.1,
+        sound = gSounds['footstep']
     }
     self.player.currentAnimation = self.animation
 end
