@@ -140,6 +140,13 @@ function LevelMaker.generate(width, height)
                             flagX = flagX - 1
                             -- if tiles at y = 6 & 7 are the same, it is either a chasm or pillar and not free
                             columnNotFree = tiles[7][flagX].id == tiles[6][flagX].id
+
+                            -- check whether another block already occupies column flagX
+                            for k, object in pairs(objects) do
+                                if (object.x - 1) == flagX then
+                                    columnNotFree = true
+                                end
+                            end
                         end
 
                         -- create a flagpole

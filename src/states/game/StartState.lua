@@ -18,8 +18,10 @@ end
 function StartState:update(dt)
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
         gStateMachine:change('play', {
+
+            -- start the game with a score of 0, and a width of 100
             ['score'] = 0,
-            ['width'] = 100
+            ['width'] = 80
         })
     end
 end
