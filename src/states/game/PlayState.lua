@@ -48,6 +48,8 @@ function PlayState:enter(params)
     self:spawnEnemies()
 
     self.player:changeState('falling')
+
+    gSounds['level-up']:play()
 end
 
 function PlayState:update(dt)

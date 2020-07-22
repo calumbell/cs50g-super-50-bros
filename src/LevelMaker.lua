@@ -131,6 +131,8 @@ function LevelMaker.generate(width, height)
                     -- the key makes the lock consumable, onConsume first remove it
                     onConsume = function(player, object)
                         lockedBlock = nil
+                        gSounds['unlock']:play()
+
 
                         -- calculate a suitable X coord for the flag
                         local flagX = width
@@ -219,6 +221,8 @@ function LevelMaker.generate(width, height)
                         solid = false,
 
                         onConsume = function(player, object)
+                            gSounds['pickup-key']:setVolume(0.5)
+                            gSounds['pickup-key']:play()
                             lockedBlock['consumable'] = true
                             lockedBlock['solid'] = false
                         end
