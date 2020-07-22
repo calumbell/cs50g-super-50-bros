@@ -166,10 +166,18 @@ function LevelMaker.generate(width, height)
                                 y = 3 * TILE_SIZE + 6,
                                 width = 16,
                                 height = 16,
+
+                                -- animate the flag
+                                animation = Animation {
+                                    frames = {0, 1},
+                                    interval = 0.25
+                                },
+
                                 collidable = false,
                                 consumable = true,
                                 solid = false,
 
+                                -- regenerate level by resetting the play state
                                 onConsume = function(obj)
                                     gStateMachine:change('play')
                                 end
