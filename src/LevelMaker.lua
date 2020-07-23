@@ -201,7 +201,7 @@ function LevelMaker.generate(width, height)
                 table.insert(objects, lockedBlock)
 
             -- chance to spawn a key, increasing as we progress through level gen
-            elseif math.random(math.max(width - x - 9, 1)) == 1 and keySpawned == false and lockSpawned == true then
+            elseif math.random(math.max(width - x - 9, 1)) == 1 and keySpawned == false then
 
                 -- set flag to true so that we only spawn one key per level
                 keySpawned = true
