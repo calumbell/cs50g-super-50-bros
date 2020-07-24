@@ -18,10 +18,7 @@ function PlayState:enter(params)
     self.gravityOn = true
     self.gravityAmount = 6
 
-
-
     -- make sure the player always spawns above solid ground
-    -- (ASSIGNMENT OBJECTIVE 1)
     local x = 0
     local notSafe = true
 

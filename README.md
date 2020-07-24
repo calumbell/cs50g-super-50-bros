@@ -1,6 +1,8 @@
 #Super 50 Bros.
+
 ##CS50G Assignment 4
-**Topics.** *Tile Maps, 2D Animation, Procedural Level Generation, and Platformer Physics*
+
+**Topics**. *Tile Maps, 2D Animation, Procedural Level Generation, and Platformer Physics*
 
 The goal for this weeks assignment was to analyse the the distribution code for the game *Super 50 Bros* (a Mario clone) and implement the following features:
 
